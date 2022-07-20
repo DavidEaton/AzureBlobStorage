@@ -35,14 +35,16 @@ Console.WriteLine($"Getting {blobName} from uri {containerClient.Uri}\n");
 
 Console.WriteLine($"Got blob: {supplyFile.GetType()}");
 
-// Get a reference to a blob
+// Path to local file
 string fileName = "./supply.json";
+// Get a reference to a blob
 BlobClient blobClient = containerClient.GetBlobClient(fileName);
+// Open to a stream
 var stream = File.OpenRead(fileName);
 
 try
 {
-    // Overwrite = true
+    // Upload the stream; overwrite = true
     await blobClient.UploadAsync(stream, true);
 }
 catch (RequestFailedException ex)

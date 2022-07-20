@@ -22,7 +22,13 @@ namespace AzureBlobStorage
             BlobClient blobClient = containerClient.GetBlobClient("supply.json");
 
             var stream = await blobClient.OpenReadAsync();
-            return JsonSerializer.Deserialize<Supply>(stream);
+
+            var result = JsonSerializer.Deserialize<Supply>(stream);
+
+            if (result is not null)
+                return result;
+
+            return new Supply();
         }
 
         private static async Task<Supply> CreateSupply()
