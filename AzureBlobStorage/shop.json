@@ -1,0 +1,18 @@
+{
+  "Name": "Lickety Split, Inc.",
+  "Address": {
+    "AddressLine": "859 Robinwood Court, Bay 1",
+    "City": "Traverse City",
+    "State": "MI",
+    "PostalCode": "55555"
+  },
+  "Phone": {
+    "Number": "(231) 941-8088",
+    "PhoneType": "Work"
+  },
+  "Fax": {
+    "Number": "(231) 941-8001",
+    "PhoneType": "Fax"
+  },
+  "LogoUrl": "https://menominee.blob.core.windows.net/moops/logo.jpg"
+}

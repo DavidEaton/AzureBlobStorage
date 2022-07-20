@@ -1,0 +1,9 @@
+{
+  "Description": "Shop Supplies",
+  "SaleCode": "SS",
+  "MaximumCharge": 9.99,
+  "CostPerInvoice": {
+    "Type": 1,
+    "Value": 0.09
+  }
+}

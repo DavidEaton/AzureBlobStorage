@@ -1,0 +1,18 @@
+{
+  "Name": "Janco, Intl.",
+  "Address": {
+    "AddressLine": "859 Robinwood Court",
+    "City": "Traverse City",
+    "State": "MI",
+    "PostalCode": "55555"
+  },
+  "Country": "US",
+  "Phone": {
+    "Number": "(231) 941-8000",
+    "PhoneType": "Work"
+  },
+  "Email": {
+    "Address": "janco@janco.com",
+    "IsPrimary": "true"
+  }
+}
