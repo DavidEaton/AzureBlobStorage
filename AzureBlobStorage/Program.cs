@@ -28,14 +28,6 @@ catch (RequestFailedException ex)
     Console.WriteLine($"Container '{containerName}' already exists.");
 }
 
-// GetSetting
-var moops = Methods.GetSupply();
-
-var supply = moops.Result;
-
-Console.WriteLine($"Description: {supply.Description}");
-Console.WriteLine($"SaleCode: {supply.SaleCode}");
-
 string blobName = "supply.json";
 var supplyFile = await Methods.GetBlob(containerClient);
 
