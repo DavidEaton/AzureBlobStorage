@@ -31,7 +31,7 @@ namespace AzureBlobStorage
             return new Supply();
         }
 
-        private static async Task<Supply> CreateSupply()
+        public static async Task<Supply> CreateSupply()
         {
             var costPerInvoice = new CostPerInvoice
             {

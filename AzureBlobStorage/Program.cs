@@ -28,12 +28,16 @@ catch (RequestFailedException ex)
     Console.WriteLine($"Container '{containerName}' already exists.");
 }
 
-string blobName = "supply.json";
-var supplyFile = await Methods.GetBlob(containerClient);
+//string blobName = "supply.json";
+//var supplyFile = await Methods.GetBlob(containerClient);
 
-Console.WriteLine($"Getting {blobName} from uri {containerClient.Uri}\n");
+//Console.WriteLine($"Getting {blobName} from uri {containerClient.Uri}\n");
 
-Console.WriteLine($"Got blob: {supplyFile.GetType()}");
+//Console.WriteLine($"Got blob: {supplyFile.GetType()}");
+
+
+var supply = await Methods.CreateSupply();
+
 
 // Path to local file
 string fileName = "./supply.json";
@@ -41,6 +45,9 @@ string fileName = "./supply.json";
 BlobClient blobClient = containerClient.GetBlobClient(fileName);
 // Open to a stream
 var stream = File.OpenRead(fileName);
+
+
+
 
 try
 {
