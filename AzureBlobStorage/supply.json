@@ -1,6 +1,6 @@
 {
   "Description": "Shop Supplies",
-  "SaleCode": "SS",
+  "SaleCode": 1,
   "MaximumCharge": 9.99,
   "CostPerInvoice": {
     "Type": 1,

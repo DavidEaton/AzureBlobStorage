@@ -6,12 +6,6 @@ namespace AzureBlobStorage
 {
     public static class Methods
     {
-        public static object GetSetting()
-        {
-
-            return new();
-        }
-
         public static async Task<Supply> GetSupply()
         {
             return await CreateSupply();

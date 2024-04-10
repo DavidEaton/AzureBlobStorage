@@ -4,6 +4,8 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using AzureBlobStorage;
 using AzureBlobStorage.Models;
+using System.Text;
+using System.Text.Json;
 
 Console.WriteLine("Hello, World!");
 
@@ -36,26 +38,27 @@ catch (RequestFailedException ex)
 //Console.WriteLine($"Got blob: {supplyFile.GetType()}");
 
 
-var supply = await Methods.CreateSupply();
+// Create non-hard-coded filename
+string fileType = "json"; 
+var fileName = $"{SettingType.supply}{fileType}";
 
 
-// Path to local file
-string fileName = "./supply.json";
 // Get a reference to a blob
 BlobClient blobClient = containerClient.GetBlobClient(fileName);
-// Open to a stream
-var stream = File.OpenRead(fileName);
 
-
-
+Supply? supply = await Methods.CreateSupply();
+string? json = JsonSerializer.Serialize(supply);
 
 try
 {
-    // Upload the stream; overwrite = true
-    await blobClient.UploadAsync(stream, true);
+    using MemoryStream ms = new(Encoding.UTF8.GetBytes(json));
+    await blobClient.UploadAsync(ms, true);
+    // Upload the string; overwrite = true
+    //await blobClient.UploadAsync(json, true);
 }
 catch (RequestFailedException ex)
 {
+    Console.WriteLine(ex.Message);
     // Log it.
 }
 
